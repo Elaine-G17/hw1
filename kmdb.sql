@@ -174,6 +174,7 @@ INSERT INTO movies (
 
 -- The SQL statement for the movies output
 -- TODO!
+SELECT title, year_released, mpaa_ratings, studio FROM movies
 
 -- Prints a header for the cast output
 .print ""
