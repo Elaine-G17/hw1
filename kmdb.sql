@@ -123,7 +123,7 @@ last_name TEXT
 
 CREATE TABLE characters (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-name TEXT
+character_name TEXT, 
 movie_id INTEGER,
 actor_id INTEGER
 );
@@ -167,6 +167,34 @@ INSERT INTO movies (
     "Warner Bros."
 );
 
+INSERT INTO actors ("first_name", "last_name") VALUES ("Christian","Bale");
+INSERT INTO actors ("first_name", "last_name") VALUES ("Michael","Caine");
+INSERT INTO actors ("first_name", "last_name") VALUES ("Liam","Neeson");
+INSERT INTO actors ("first_name", "last_name") VALUES ("Katie","Holmes");
+INSERT INTO actors ("first_name", "last_name") VALUES ("Gary","Oldman");
+INSERT INTO actors ("first_name", "last_name") VALUES ("Heath","Ledger");
+INSERT INTO actors ("first_name", "last_name") VALUES ("Aaron","Eckhart");
+INSERT INTO actors ("first_name", "last_name") VALUES ("Maggie","Gyllenhaal");
+INSERT INTO actors ("first_name", "last_name") VALUES ("Tom","Hardy");
+INSERT INTO actors ("first_name", "last_name") VALUES ("Joseph","Gordon-Levitt");
+INSERT INTO actors ("first_name", "last_name") VALUES ("Anne","Hathaway");
+
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Bruce Wayne","1","1");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Alfred","1","2");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Ra's Al Ghul","1","3");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Rachel Dawes","1","4");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Commissioner Gordon","1","5");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Bruce Wayne","2","1");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Joker","2","6");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Harvey Dent","2","7");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Alfred","2","2");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Rachel Dawes","2","8");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Bruce Wayne","3","1");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Commissioner Gordon","3","5");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Bane","3","9");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("John Blake","3","10");
+INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Selina Kyle","3","11");
+
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
@@ -174,7 +202,7 @@ INSERT INTO movies (
 
 -- The SQL statement for the movies output
 -- TODO!
-SELECT title, year_released, mpaa_ratings, studio FROM movies
+SELECT title, year_released, mpaa_ratings, studio FROM movies;
 
 -- Prints a header for the cast output
 .print ""
@@ -182,6 +210,8 @@ SELECT title, year_released, mpaa_ratings, studio FROM movies
 .print "========"
 .print ""
 
-
 -- The SQL statement for the cast output
 -- TODO!
+SELECT movies.title, actors.first_name, actors.last_name, character_name FROM characters
+INNER JOIN movies ON movies.id=characters.movie_id
+INNER JOIN actors ON actors.id=characters.actor_id;
