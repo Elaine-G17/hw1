@@ -195,6 +195,8 @@ INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Bane"
 INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("John Blake","3","10");
 INSERT INTO characters ("character_name", "movie_id", "actor_id") VALUES ("Selina Kyle","3","11");
 
+.width 20 15 15 40
+
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
